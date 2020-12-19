@@ -1,18 +1,28 @@
 defmodule Testy do
   @moduledoc """
-  Documentation for `Testy`.
+  Supervisor for whole application.
   """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    children = [
+      {Plug.Cowboy,
+       scheme: :http,
+       plug: Testy.Router,
+       options: [
+         dispatch: [
+           {:_,
+            [
+              {"/ws", Testy.WebsocketHandler, []},
+              {:_, Plug.Adapters.Cowboy.Handler, {Testy.Router, []}}
+            ]}
+         ],
+         port: 4001
+       ]}
+    ]
 
-  ## Examples
+    opts = [strategy: :one_for_one, name: Testy.Supervisor]
 
-      iex> Testy.hello()
-      :world
-
-  """
-  def hello do
-    :world
+    Supervisor.start_link(children, opts)
   end
 end
