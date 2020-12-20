@@ -32,7 +32,7 @@ defmodule Testy.Websockets.Base.DispatcherTest do
       payload: "Hello, world!"
     }
 
-    assert ^expected_response = TestDispatcher.run(req1)
+    assert {:ok, ^expected_response} = TestDispatcher.run(req1)
   end
 
   test "dispatch handles exceptions gracefully" do
@@ -49,7 +49,7 @@ defmodule Testy.Websockets.Base.DispatcherTest do
       payload: nil
     }
 
-    assert ^expected_response = TestDispatcher.run(req2)
+    assert {:ok, ^expected_response} = TestDispatcher.run(req2)
   end
 
   test "dispatch handles error cases" do
@@ -66,7 +66,7 @@ defmodule Testy.Websockets.Base.DispatcherTest do
       payload: nil
     }
 
-    assert ^expected_response = TestDispatcher.run(req3)
+    assert {:ok, ^expected_response} = TestDispatcher.run(req3)
   end
 
   test "dispatch handles missing types" do
@@ -83,6 +83,6 @@ defmodule Testy.Websockets.Base.DispatcherTest do
       payload: nil
     }
 
-    assert ^expected_response = TestDispatcher.run(req4)
+    assert {:ok, ^expected_response} = TestDispatcher.run(req4)
   end
 end

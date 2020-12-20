@@ -35,25 +35,27 @@ defmodule Testy.Websockets.Base.Dispatcher do
         {:error, error_message} -> error_response(request, error_message)
       end
     rescue
-      e -> error_response(request, e.message)
+      e -> error_response(request, Exception.message(e))
     end
   end
 
   def ok_response(request, response) do
-    %Testy.Websockets.Base.Response{
-      ref: request.ref,
-      status: "ok",
-      error: nil,
-      payload: response
-    }
+    {:ok,
+     %Testy.Websockets.Base.Response{
+       ref: request.ref,
+       status: "ok",
+       error: nil,
+       payload: response
+     }}
   end
 
   def error_response(request, error_message) do
-    %Testy.Websockets.Base.Response{
-      ref: request.ref,
-      status: "error",
-      error: error_message,
-      payload: nil
-    }
+    {:ok,
+     %Testy.Websockets.Base.Response{
+       ref: request.ref,
+       status: "error",
+       error: error_message,
+       payload: nil
+     }}
   end
 end
