@@ -16,6 +16,13 @@ defmodule Testy.WebsocketHandler do
   end
 
   def websocket_info(msg, state) do
+    Logger.warn("Unsupported message #{inspect(msg)} has been received by websocket process")
     {:ok, state}
+  end
+
+  def terminate(reason, _partial_req, _state) do
+    Logger.info("Socket closed because of #{inspect(reason)}")
+
+    :ok
   end
 end
