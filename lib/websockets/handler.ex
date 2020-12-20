@@ -1,4 +1,4 @@
-defmodule Testy.WebsocketHandler do
+defmodule Testy.Websockets.Handler do
   @behaviour :cowboy_websocket
   require Logger
 

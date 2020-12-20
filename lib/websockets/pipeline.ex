@@ -1,4 +1,4 @@
-defmodule Testy.Pipeline do
+defmodule Testy.Websockets.Pipeline do
   @moduledoc "Message processing pipeline"
 
   @transport_map %{
@@ -9,11 +9,9 @@ defmodule Testy.Pipeline do
     transport = Map.get(@transport_map, transport, Testy.Base.Transport.JSON)
 
     with {:ok, decoded} <- transport.decode(msg),
-         {:ok, processed} <- Dispatch.process(decoded),
+         {:ok, processed} <- Testy.Websockets.Dispatch.run(decoded),
          {:ok, encoded} <- transport.encode(processed) do
       {:ok, encoded}
-    else
-      _ -> {:error, :processing_error}
     end
   end
 end
