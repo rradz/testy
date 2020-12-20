@@ -11,6 +11,12 @@ defmodule Testy.WebsocketHandler do
     {:ok, %{}}
   end
 
+  def websocket_handle({:binary, msg}, state) do
+    {:ok, reply} = Pipeline.run(msg)
+
+    {:reply, {:binary, reply}, state}
+  end
+
   def websocket_handle({:text, msg}, state) do
     {:reply, {:text, msg}, state}
   end

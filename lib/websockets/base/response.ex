@@ -1,3 +1,3 @@
-defmodule Testy.Base.Response do
+defmodule Testy.Websockets.Base.Response do
   defstruct([:ref, :status, :error, :payload])
 end
