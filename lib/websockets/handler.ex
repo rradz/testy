@@ -23,7 +23,6 @@ defmodule Testy.Websockets.Handler do
 
   @impl :cowboy_websocket
   def websocket_handle({:text, msg}, state) do
-    IO.puts("Current state: #{inspect(state)}")
     process_message(msg, :text, state.transport)
 
     {:ok, state}
@@ -38,6 +37,12 @@ defmodule Testy.Websockets.Handler do
   @impl :cowboy_websocket
   def websocket_info({:respond, ws_type, reply}, state) do
     {:reply, {ws_type, reply}, state}
+  end
+
+  @impl :cowboy_websocket
+  def websocket_info({:EXIT, _pid, :normal}, state) do
+    # So messages informing about linked process exiting normally don't clutter the log.
+    {:ok, state}
   end
 
   @impl :cowboy_websocket
