@@ -13,7 +13,7 @@ defmodule Testy do
          dispatch: [
            {:_,
             [
-              {"/ws", Testy.WebsocketHandler, []},
+              {"/ws", Testy.Websockets.Handler, []},
               {:_, Plug.Adapters.Cowboy.Handler, {Testy.Router, []}}
             ]}
          ],
