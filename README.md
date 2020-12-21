@@ -18,9 +18,8 @@ Testy is a simple websocket server intended as a code sample.
 2. To connect to a server, open a connection at `ws://localhost:4001/ws`.
 
 3. Server accepts two types of messages - add and multiply and they have to be delivered in JSON format with custom structure. Examples of both:
-
-Add: `{"ref":2,"type":"add","payload":{"a":1,"b":1}}`
-Multiply: `{"ref":2,"type":"multiply","payload":{"a":1,"b":1}}`
+- Add: `{"ref":2,"type":"add","payload":{"a":1,"b":1}}`
+- Multiply: `{"ref":2,"type":"multiply","payload":{"a":1,"b":1}}`
 
 ## Reading the code
 I tried to make the code as readable as possible. but there are a few harder parts. If you got any questions, feel free to ping me.
