@@ -24,4 +24,4 @@ Multiply: `{"ref":2,"type":"multiply","payload":{"a":1,"b":1}}`
 I tried to make the code as readable as possible. but there are a few harder parts. If you got any questions, feel free to ping me.
 
 ## Kudos
-Thanks to Benjamin Tan for his (article)[https://benjamintan.io/blog/2014/02/12/phoenix-elixir-web-framework-and-websockets/] from 2014 that showed me how to actually start with this back in 2015. Big thanks to Elixir and Phoenix teams, I learned a lot from both your excellent tutorials/documentation and reading your code.
+Thanks to Benjamin Tan for his [article](https://benjamintan.io/blog/2014/02/12/phoenix-elixir-web-framework-and-websockets/) from 2014 that showed me how to actually start with this back in 2015. Big thanks to Elixir and Phoenix teams, I learned a lot from both your excellent tutorials/documentation and reading your code.
