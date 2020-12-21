@@ -1,4 +1,7 @@
 defmodule Testy.Router do
+  @moduledoc """
+  Simply router so server state is checkable.
+  """
   use Plug.Router
 
   plug(:match)

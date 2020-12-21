@@ -36,11 +36,6 @@ defmodule Testy.Websockets.Handler do
   end
 
   @impl :cowboy_websocket
-  def websocket_handle({:text, msg}, state) do
-    {:reply, {:text, msg}, state}
-  end
-
-  @impl :cowboy_websocket
   def websocket_info({:respond, ws_type, reply}, state) do
     {:reply, {ws_type, reply}, state}
   end

@@ -1,4 +1,17 @@
 defmodule Testy.Websockets.Base.Dispatcher do
+  @moduledoc """
+  Module intended to facilitate creating dispatchers, routers for websocket requests. Example use:
+  `
+  defmodule MyDispatcher do
+    use Testy.Websockets.Base.Dispatcher
+
+    dispatch "request_type", to: MyHandlerModule, method: :my_handler_function
+  end
+  `
+
+  It is assumed that handler methods adhere to return spec {:ok, any()} | {:error, String.t()}
+  """
+
   defmacro __using__(_opts) do
     quote do
       import Testy.Websockets.Base.Dispatcher

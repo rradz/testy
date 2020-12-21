@@ -1,4 +1,8 @@
 defmodule Testy.Websockets.Base.Transport do
+  @moduledoc """
+  Module defining behaviour to which transport implementations for Testy must adhere.
+  """
+
   @doc """
   Decodes a binary message
   """

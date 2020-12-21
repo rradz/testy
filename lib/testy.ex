@@ -14,7 +14,7 @@ defmodule Testy do
            {:_,
             [
               {"/ws", Testy.Websockets.Handler, []},
-              {:_, Plug.Adapters.Cowboy.Handler, {Testy.Router, []}}
+              {:_, Plug.Cowboy.Handler, {Testy.Router, []}}
             ]}
          ],
          port: 4001
