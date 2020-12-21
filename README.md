@@ -6,8 +6,10 @@ Testy is a simple websocket server intended as a code sample.
 
 1. Clone project from GitHub.
 2. Ensure you have proper versions of Elixir and Erlang installed. Testy uses OTP 23.2 and Elixir 1.11.2-otp-23. If you use asdf, just run `asdf install` in project root(all the usual gotchas about Erlang :crypto apply).
-3. Run it by `mix run --no-halt` or `iex -S mix` if you prefer to run interactively.
-4. Go to `localhost:4001` in your web browser - you should see the message that server is running.
+4. Run `mix deps.get` to fetch the dependencies.
+5. (Optional) Run `mix test` to check if all is alright(it should be).
+6. Run the project by `mix run --no-halt` or `iex -S mix` if you prefer to run interactively.
+7. Go to [localhost:4001](http://localhost:4001) in your web browser - you should see the message that server is running.
 
 ## Using it
 
